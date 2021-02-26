@@ -1,1 +1,1 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA","file":"styles.8986bff4.css","sourceRoot":"../src","sourcesContent":[""]}
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"styles.8986bff4.css","sourceRoot":"../src","sourcesContent":["body {\n  background: #000;\n}\n\ncanvas {\n  left: 50%;\n  position: absolute;\n  top: 50%;\n  transform: translate(-50%, -50%);\n}\n"]}
