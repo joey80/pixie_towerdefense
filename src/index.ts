@@ -1,19 +1,9 @@
-import * as PIXI from 'pixi.js';
-import { pizzaFrames } from './assets/images/loader';
+import GameObject from './classes/Engine/GameObject';
+import Level from './classes/Levels/Level';
 
-// The application will create a renderer using WebGL, if possible,
-// with a fallback to a canvas render. It will also setup the ticker
-// and the root stage PIXI.Container
-const app = new PIXI.Application();
+const gameobject = new GameObject({ height: 720, width: 1280 });
+const app = gameobject.init();
 document.body.appendChild(app.view);
 
-// This `setup` function will run when the image has loaded
-const setup = () => {
-  // Create the pizza sprite
-  const pizza = new PIXI.Sprite(app.loader.resources[pizzaFrames.pizza[0]].texture);
-  //Add the cat to the stage
-  app.stage.addChild(pizza);
-};
-
-// load an image and run the `setup` function when it's done
-app.loader.add(pizzaFrames.pizza[0]).load(setup);
+const scene = new Level(app);
+scene.init();
