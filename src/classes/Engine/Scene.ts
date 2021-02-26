@@ -1,7 +1,7 @@
-import * as PIXI from 'pixi.js';
+import { Application } from 'pixi.js';
 
 type SceneType = {
-  app: PIXI.Application;
+  app: Application;
   tick: number;
 };
 
