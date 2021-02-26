@@ -1,5 +1,5 @@
-import * as PIXI from 'pixi.js';
 import Scene, { SceneType } from '../Engine/Scene';
+import Sprite from '../Entity/Sprite';
 import { pizzaFrames } from '../../assets/images/loader';
 
 type LevelType = {};
@@ -12,17 +12,23 @@ class Level extends Scene implements LevelType {
     this.app = app;
   }
 
+  create() {
+    const pizza = new Sprite({
+      texture: this.app.loader.resources[pizzaFrames.pizza[0]].texture,
+      x: 0,
+      y: 0,
+    });
+    pizza.init();
+    this.app.stage.addChild(pizza);
+  }
+
   init() {
     super.init();
-    const setup = () => {
-      // Create the pizza sprite
-      // And add it to the stage
-      const pizza = new PIXI.Sprite(this.app.loader.resources[pizzaFrames.pizza[0]].texture);
-      this.app.stage.addChild(pizza);
-    };
+    this.preloadAssets();
+  }
 
-    // load an image and run the `setup` function when it's done
-    this.app.loader.add(pizzaFrames.pizza[0]).load(setup);
+  preloadAssets() {
+    this.app.loader.add(pizzaFrames.pizza[0]).load(() => this.create());
   }
 }
 

@@ -1,4 +1,4 @@
-import * as PIXI from 'pixi.js';
+import { Application } from 'pixi.js';
 
 type GameObjectType = {
   height: number;
@@ -14,7 +14,7 @@ class GameObject implements GameObjectType {
   }
 
   init() {
-    return new PIXI.Application({
+    return new Application({
       backgroundColor: 0xffffff,
       height: this.height,
       resolution: devicePixelRatio,
