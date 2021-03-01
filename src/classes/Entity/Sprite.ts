@@ -15,7 +15,7 @@ class Sprite extends PixiSprite {
     this.x = x;
     this.y = y;
 
-    return new PixiSprite(this.texture);
+    return new PixiSprite(texture);
   }
 }
 
