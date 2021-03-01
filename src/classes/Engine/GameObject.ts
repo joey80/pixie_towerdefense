@@ -7,7 +7,7 @@ type GameObjectType = {
 
 interface GameObject extends GameObjectType {}
 
-class GameObject implements GameObjectType {
+class GameObject {
   constructor({ height, width }: GameObjectType) {
     this.height = height;
     this.width = width;

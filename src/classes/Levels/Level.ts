@@ -18,7 +18,6 @@ class Level extends Scene implements LevelType {
       x: 0,
       y: 0,
     });
-    pizza.init();
     this.app.stage.addChild(pizza);
   }
 
