@@ -11,10 +11,11 @@ class Scene implements SceneType {
   constructor(app: SceneType['app']) {
     this.app = app;
     this.tick = 0;
+    this.init();
   }
 
   init() {
-    this.app.ticker.add(delta => this.update(delta));
+    this.app.ticker.add((delta: number) => this.update(delta));
   }
 
   update(delta: number) {

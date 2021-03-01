@@ -1,10 +1,12 @@
 import { Sprite as PixiSprite, Texture } from 'pixi.js';
 
-interface SpriteType {
+type SpriteType = {
   texture: Texture;
   x: number;
   y: number;
-}
+};
+
+interface Sprite extends SpriteType {}
 
 class Sprite extends PixiSprite {
   constructor({ texture, x, y }: SpriteType) {
@@ -12,10 +14,8 @@ class Sprite extends PixiSprite {
     this.texture = texture;
     this.x = x;
     this.y = y;
-  }
 
-  init() {
-    return new PixiSprite(this.texture);
+    return new PixiSprite(texture);
   }
 }
 
