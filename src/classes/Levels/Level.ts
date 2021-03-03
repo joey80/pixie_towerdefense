@@ -1,4 +1,5 @@
 import Grid from '../Grid';
+import Menu from '../Menu';
 import Scene, { SceneType } from '../Engine/Scene';
 import Sprite from '../Entity/Sprite';
 import { pizzaFrames } from '../../assets/images/loader';
@@ -23,14 +24,18 @@ class Level extends Scene implements LevelType {
   }
 
   createGrid() {
-    const { height, width } = this.app.renderer.screen;
-    this.app.stage.addChild(new Grid({ height, size: 120, width }).init());
+    this.app.stage.addChild(new Grid({ height: this.height, size: 120, width: this.width }).init());
+  }
+
+  createMenu() {
+    this.app.stage.addChild(new Menu({ height: 120, width: this.width, x: 0, y: 0 }).init());
   }
 
   init() {
     super.init();
     this.preloadAssets();
     this.createGrid();
+    this.createMenu();
   }
 
   preloadAssets() {
