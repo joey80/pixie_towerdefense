@@ -18,10 +18,30 @@ class Cell extends Graphics {
     this.y = y;
   }
 
-  init() {
+  addEventListeners() {
+    this.graphics.addListener('mouseover', () => {
+      if (this.x > 0) {
+        this.graphics.clear();
+        this.drawCell(true);
+      }
+    });
+
+    this.graphics.addListener('mouseout', () => {
+      this.graphics.clear();
+      this.drawCell();
+    });
+  }
+
+  drawCell(isHovering?: boolean) {
     this.graphics.beginFill(0xffffff);
-    this.graphics.lineStyle(5, 0x000000);
+    this.graphics.lineStyle(3, isHovering ? 0x000000 : 0xffffff);
     this.graphics.drawRect(this.x, this.y, this.size, this.size);
+  }
+
+  init() {
+    this.graphics.interactive = true;
+    this.drawCell();
+    this.addEventListeners();
     return this.graphics;
   }
 }
