@@ -25,6 +25,11 @@
   "bugs": {
     "url": "https://github.com/joey80/pixie_towerdefense/issues"
   },
+  "release": {
+    "branches": [
+      "release"
+    ]
+  },
   "homepage": "https://github.com/joey80/pixie_towerdefense#readme",
   "dependencies": {
     "pixi.js": "^5.3.8"
