@@ -3,15 +3,16 @@ import Cell from './Cell';
 
 type GridType = {
   height: number;
-  objectSize: number;
   size: number;
   width: number;
 };
 
-interface Grid extends GridType {}
+interface Grid extends GridType {
+  objectSize: number;
+}
 
 class Grid implements GridType {
-  constructor({ height, size, width }: Pick<GridType, 'height' | 'size' | 'width'>) {
+  constructor({ height, size, width }: GridType) {
     this.height = height;
     this.objectSize = size - 3 * 2;
     this.size = size;
@@ -20,8 +21,11 @@ class Grid implements GridType {
 
   init() {
     const container = new Container();
-    for (let y = this.size; y < this.height; y += this.size) {
-      for (let x = -40; x < this.width; x += this.size) {
+    const doubleCellGap = 3 * 2;
+    const horizontalOffset = -40;
+
+    for (let y = this.size + doubleCellGap; y < this.height; y += this.size) {
+      for (let x = horizontalOffset; x < this.width; x += this.size) {
         container.addChild(new Cell({ size: this.objectSize, x, y }).init());
       }
     }

@@ -1,16 +1,17 @@
 import { Graphics } from 'pixi.js';
 
 type CellType = {
-  graphics: Graphics;
   size: number;
   x: number;
   y: number;
 };
 
-interface Cell extends CellType {}
+interface Cell extends CellType {
+  graphics: Graphics;
+}
 
 class Cell extends Graphics {
-  constructor({ size, x, y }: Omit<CellType, 'graphics'>) {
+  constructor({ size, x, y }: CellType) {
     super();
     this.graphics = new Graphics();
     this.size = size;
@@ -20,6 +21,7 @@ class Cell extends Graphics {
 
   addEventListeners() {
     this.graphics.addListener('mouseover', () => {
+      // ignore the cells that are offset to the left
       if (this.x > 0) {
         this.graphics.clear();
         this.drawCell(true);
