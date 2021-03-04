@@ -1,0 +1,48 @@
+{
+  "frames": {
+    "barbarian_1_attack_001.png": {
+      "frame": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "barbarian_1_attack_002.png": {
+      "frame": { "x": 72, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "barbarian_1_attack_003.png": {
+      "frame": { "x": 144, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "barbarian_1_crouch_001.png": {
+      "frame": { "x": 216, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    }
+  },
+  "animations": {
+    "barbarian_1_attack": [
+      "barbarian_1_attack_001.png",
+      "barbarian_1_attack_002.png",
+      "barbarian_1_attack_003.png"
+    ]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "hero.2b350155.png",
+    "format": "RGBA8888",
+    "size": { "w": 288, "h": 72 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:a560fd23b8c58360f5fce1a0067fa86e:c39f901420ef9e3171c942997728a2c1:049a1e10ddf44989e4af4e84fecd01e8$"
+  }
+}
