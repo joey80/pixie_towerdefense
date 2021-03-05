@@ -40,7 +40,6 @@ class Scaffold {
     }
 
     export type { ${this.className}Type };
-
     export default ${this.className};`;
     this.saveFile(`${this.className}.ts`, template);
   }
