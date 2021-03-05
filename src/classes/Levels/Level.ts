@@ -1,8 +1,8 @@
-import * as PIXI from 'pixi.js';
 import Grid from '../Grid';
 import Menu from '../Menu';
 import Scene, { SceneType } from '../Engine/Scene';
 import Sprite from '../Entity/Sprite';
+import SpriteSheet from '../Entity/SpriteSheet';
 import heroJson from '../../assets/images/hero/hero.json';
 import heroImage from '../../assets/images/hero/hero.png';
 import pizzaImage from '../../assets/images/pizza.png';
@@ -18,26 +18,21 @@ class Level extends Scene implements LevelType {
   }
 
   create() {
-    const sheet = new PIXI.Spritesheet(
-      this.app.loader.resources[heroImage].texture.baseTexture,
-      heroJson
-    );
-
-    sheet.parse((...args) => {
-      const hero = new Sprite({
-        texture: args[0]['barbarian_1_crouch_001.png'],
-        x: 700,
-        y: 0,
-      });
-      this.app.stage.addChild(hero);
-    });
+    const hero = new SpriteSheet({
+      defaultSprite: 'barbarian_1_crouch_001.png',
+      jsonData: heroJson,
+      texture: this.app.loader.resources[heroImage].texture.baseTexture,
+      x: 700,
+      y: 50,
+    }).init();
 
     const pizza = new Sprite({
       texture: this.app.loader.resources[pizzaImage].texture,
       x: 0,
       y: 0,
     });
-    this.app.stage.addChild(pizza);
+
+    this.app.stage.addChild(pizza, hero);
   }
 
   createGrid() {
