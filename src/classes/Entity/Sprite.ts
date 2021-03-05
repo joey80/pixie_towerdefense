@@ -6,7 +6,9 @@ type SpriteType = {
   y: number;
 };
 
-interface Sprite extends SpriteType {}
+interface Sprite extends SpriteType {
+  sprite: PixiSprite;
+}
 
 class Sprite extends PixiSprite {
   constructor({ texture, x, y }: SpriteType) {
@@ -14,8 +16,14 @@ class Sprite extends PixiSprite {
     this.texture = texture;
     this.x = x;
     this.y = y;
+    this.init();
+  }
 
-    return new PixiSprite(texture);
+  init() {
+    this.sprite = new PixiSprite(this.texture);
+    this.sprite.x = this.x;
+    this.sprite.y = this.y;
+    return this.sprite;
   }
 }
 
