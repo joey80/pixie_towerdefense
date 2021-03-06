@@ -1,9 +1,8 @@
+import Defender from '../Entity/Defender';
 import Grid from '../Grid';
 import Menu from '../Menu';
 import Scene, { SceneType } from '../Engine/Scene';
 import Sprite from '../Entity/Sprite';
-import SpriteSheet from '../Entity/SpriteSheet';
-import heroJson from '../../assets/images/hero/hero.json';
 import heroImage from '../../assets/images/hero/hero.png';
 import pizzaImage from '../../assets/images/pizza.png';
 
@@ -18,16 +17,16 @@ class Level extends Scene implements LevelType {
   }
 
   create() {
-    const hero = new SpriteSheet({
-      defaultSprite: 'barbarian_1_crouch_001.png',
-      jsonData: heroJson,
-      texture: this.app.loader.resources[heroImage].texture.baseTexture,
+    const resources = this.app.loader.resources;
+
+    const hero = new Defender({
+      texture: resources[heroImage].texture.baseTexture,
       x: 700,
       y: 50,
     }).init();
 
     const pizza = new Sprite({
-      texture: this.app.loader.resources[pizzaImage].texture,
+      texture: resources[pizzaImage].texture,
       x: 0,
       y: 0,
     });
