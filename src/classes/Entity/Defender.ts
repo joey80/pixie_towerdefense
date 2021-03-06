@@ -1,17 +1,16 @@
-import Sprite, { SpriteType } from './Sprite';
+import SpriteSheet, { SpriteSheetType } from './SpriteSheet';
+import heroJson from '../../assets/images/hero/hero.json';
 
 type DefenderType = {};
 
-interface Defender extends SpriteType {}
+interface Defender extends SpriteSheetType {}
 
-class Defender extends Sprite {
-  constructor({ texture, x, y }: SpriteType) {
-    super({ texture, x, y });
+class Defender extends SpriteSheet {
+  constructor({ texture, x, y }: Pick<SpriteSheetType, 'texture' | 'x' | 'y'>) {
+    super({ jsonData: heroJson, defaultSprite: 'barbarian_1_crouch_001.png', texture, x, y });
     this.texture = texture;
     this.x = x;
     this.y = y;
-
-    return new Sprite({ texture, x, y });
   }
 }
 
